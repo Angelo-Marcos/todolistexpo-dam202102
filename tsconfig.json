@@ -1,11 +1,12 @@
 {
-    "compilerOptions": {
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react-native",
-        "moduleResolution": "Node",
-        "noEmit": true,
-        "strict": true,
-        "target": "ESNext"
-    }
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "strict": true,
+    "target": "ESNext"
+  },
+  "extends": "expo/tsconfig.base"
 }

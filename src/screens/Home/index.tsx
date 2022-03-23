@@ -3,13 +3,12 @@ import {
     SafeAreaView,
     Text,
     TextInput,
-    TouchableOpacity,
-    ScrollView,
     FlatList
 } from 'react-native';
 
 import { styles } from './styles';
 import { Button } from '../../components/Button';
+import { TaskCard } from '../../components/TaskCard';
 
 interface TaskData {
     id: string;
@@ -52,54 +51,20 @@ export function Home() {
                 title="Adicionar tarefa"
             />
 
-            {/* <TouchableOpacity  
-                style={styles.button}
-                activeOpacity={0.7}
-                onPress={handleAddNewTask}
-            >
-            <Text style={styles.buttonText}>
-                Adicionar
-                </Text>
-            </TouchableOpacity> */}
-
             <Text style={[styles.text, { marginTop: 20 }]}>
                 Minhas Tarefas
             </Text>
-
-            {/* <ScrollView>
-            {
-                tasks.map(task => (
-                <TouchableOpacity 
-                    style={styles.buttonTask}
-                    key={task}
-                >
-                    <Text style={styles.textTask}>
-                    {task}
-                    </Text>
-                    
-                </TouchableOpacity>
-                ))
-            }
-            </ScrollView> */}
 
             <FlatList
                 data={tasks}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <TouchableOpacity
-                        style={styles.buttonTask}
+                    <TaskCard
+                        title={item.name}
                         onPress={() => handleRemoveTask(item.id)}
-                    >
-                        <Text style={styles.textTask}>
-                            {item.name}
-                        </Text>
-
-                    </TouchableOpacity>
+                    />
                 )}
-            >
-
-            </FlatList>
-
+            />
         </SafeAreaView>
     )
 }
